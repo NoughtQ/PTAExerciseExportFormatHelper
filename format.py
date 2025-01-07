@@ -16,8 +16,11 @@ def result_class_div_filter(tag):
 def specific_div_filter(tag):
     if tag.name == "div" and tag.has_attr("class"):
         class_list = tag["class"]
-        condition1 = " ".join(class_list) == "fixed top-0 w-full h-14 shadow overflow-hidden z-10"
-        condition2 = " ".join(class_list) == "sb_KfyKY bg-bg-base transition-[left]"
+        # Delete username and icon
+        condition1 = " ".join(class_list) == "flex gap-x-4 relative"                         
+        # Delete the left sidebar
+        condition2 = " ".join(class_list) == "sb_KfyKY bg-bg-base transition-[left]"        
+        # Delete states of answers for questions
         condition3 = " ".join(class_list) == "space-y-4 text-sm bg-bg-light p-4 rounded-lg"
         return condition1 or condition2 or condition3
     return False
